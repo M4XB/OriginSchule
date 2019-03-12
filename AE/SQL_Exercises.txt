@@ -1,0 +1,56 @@
+mysql -u root -p
+
+Aufgaben:
+1. Select * from products
+2. select * from orders inner join order_details on orders.id = order_details.id where order_details.status_id is not 3
+3. select * from customers
+4. select * from customers where last_name LIKE 'L%'
+5. select * from orders inner join order_details on orders.id = order_details.id where order_details.quantity >100.000
+6. select sum(Table_rows) from information_schema.tables where table_schema = 'Northwind'
+7. select * from products where category LIKE 'Beverages'
+
+8.1: Geben Sie alle Bestellungen aus, die bereits verschifft wurden
+8.2: Geben Sie alle Ids und Listenpreis von allen Produkten aus und sortieren diese nach dem Preis absteigend
+8.3: Geben Sie die Differenz von der teuerste und der billigsten Bestellung als Differenz aus
+
+
+Klassen Aufg.
+Select * from employees where city LIKE 'Seattle'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LSG:
+8.1: select * from orders where status_id = 2
+8.2: select id, list_price from products Order by order_details.unit_price DESC
+8.3: select (max(unit_price)-min(unit_price)) as Differenz from order_details
+
+

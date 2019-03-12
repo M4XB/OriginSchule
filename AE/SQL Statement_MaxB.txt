@@ -1,0 +1,49 @@
+
+		
+SELECT CTE.product_id, CTE.customer_id,CTE.unit_price
+FROM (SELECT COUNT(o.customer_id) as Row_num, od.product_id, o.customer_id, od.unit_price
+	  FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	  GROUP BY 	o.customer_id ASC) CTE
+WHERE CTE.Row_num = 1;
+
+SELECT MIN(od.unit_price) as Unitprice, o.customer_id, od.product_id
+FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+GROUP BY o.customer_id
+
+SELECT o.customer_id, od.product_id, tmp.Unitprice
+FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	(SELECT MIN(od.unit_price) as Unitprice, o.customer_id, od.product_id
+	FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	GROUP BY o.customer_id) tmp
+WHERRE o.product_id = tmp.product_id
+__________________________________________________________________________
+SELECT o.customer_id, od.product_id, tmp.Unitprice
+FROM
+	(SELECT MIN(od.unit_price) as Unitprice, o.customer_id, od.product_id
+	FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	GROUP BY o.customer_id) tmp
+__________________________________________________________________________
+
+SELECT o.customer_id, od.product_id, tmp.Unitprice
+FROM order_details od INNER JOIN orders o ON od.order_id = o.id,
+	(
+	SELECT MIN(od.unit_price) as Unitprice, o.customer_id, od.product_id
+	FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	GROUP BY o.customer_id
+	) tmp
+WHERE od.unit_price = tmp.Unitprice AND o.customer_id = tmp.customer_id 
+GROUP By o.customer_id
+ORDER BY o.customer_id
+
+_______________________________________________________________________
+
+SELECT o.customer_id, od.product_id, tmp.Unitprice
+FROM order_details od INNER JOIN orders o ON od.order_id = o.id,
+	(
+	SELECT MIN(od.unit_price) as Unitprice, o.customer_id, od.product_id
+	FROM order_details od INNER JOIN orders o ON od.order_id = o.id
+	GROUP BY o.customer_id
+	) tmp
+WHERE od.unit_price = tmp.Unitprice AND o.customer_id = tmp.customer_id 
+GROUP By o.customer_id
+ORDER BY o.customer_id
