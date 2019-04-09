@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-
+//ermittelt zufällig einen Nachbar und versucht diesen zu überzeugen
 void convince(int personPosition) {
     int random = rand() % 4;
     int position;
@@ -81,11 +81,11 @@ void convince(int personPosition) {
 int customMod(int a, int b){
     return (a%b+b)%b;
 }
-
-bool isdictatorship(int n) {
+//Prüft ob nur noch eine Partei vorhanden ist
+bool isdictatorship(int party) {
     bool dictator = false;
     for (int var = 0; var < populationCount; var++) {
-        if(populationArray[var] == n){
+        if(populationArray[var] == party){
             dictator = true;
         }else{
             return false;
@@ -93,7 +93,7 @@ bool isdictatorship(int n) {
     }
     return dictator;
 }
-
+//Gibt das Feld aus
 void outputGrid(){
    ostringstream output;
     for(int i=0; i < populationCount; i++){
@@ -103,7 +103,7 @@ void outputGrid(){
     }
     cout << output.str() << endl;
 }
-
+//Gibt den Gewinner aus
 void outputWinner(int winner, int outputCounter){
     system("cls");
     cout << winner << " has Won!!!" << endl;
