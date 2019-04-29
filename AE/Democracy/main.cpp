@@ -22,7 +22,7 @@ void outputWinner(int winner, int count);
 
 int main(int argc, char *argv[])
 {
-    srand(time(NULL));
+    srand(0);
     //50:50 Bevölkerung
     for(int i = 0; i < populationCount; i++){
         if(i<200){populationArray[i] = 0;}
