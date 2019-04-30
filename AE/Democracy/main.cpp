@@ -11,27 +11,33 @@ using namespace std;
 const int populationCount = 400;
 int populationArray[populationCount];
 const int sleepingTime = 100;
-const int outputs = 5000;
+const int outputs = 1000000;
 
-//Methoden
+//Methodens
 void outputGrid();
 void convince(int personPosition);
 int customMod(int a, int b);
 bool isdictatorship(int n);
 void outputWinner(int winner, int count);
+void outputCounter(int counter);
 
 int main(int argc, char *argv[])
 {
-    srand(0);
+    srand(time(NULL));
     //50:50 Bevölkerung
     for(int i = 0; i < populationCount; i++){
-        if(i<200){populationArray[i] = 0;}
-        else{populationArray[i] = 1;}
+        populationArray[i] = rand()%2;
+        //if(i<200){populationArray[i] = 0;}
+        //else{populationArray[i] = 1;}
     }
     int countOutputs = 1;
+    system("title Demokratur");
     outputGrid();
+    while (cin.get() != '\n');
     while(1){
-        convince(rand()%populationCount);
+
+        int randomPerson = (rand()%21)*(rand()%21);
+        convince(randomPerson);
         if (countOutputs % outputs == 0){
             system("cls");
             outputGrid();
@@ -43,6 +49,7 @@ int main(int argc, char *argv[])
                 outputWinner(1, countOutputs);
                 break;
             }
+            outputCounter(countOutputs);
             Sleep(sleepingTime);
         }
         countOutputs +=1;
@@ -54,19 +61,19 @@ void convince(int personPosition) {
     int random = rand() % 4;
     int position;
     switch (random) {
-        case 0: {
+        case 0: {//Links
             position = customMod((personPosition - 1 + 20) % 20, 20) + (((int)personPosition / 20) * 20);
             break;
         }
-        case 1: {
+        case 1: {//Rechts
             position = customMod((personPosition + 1 - 20) % 20, 20) + (((int)personPosition / 20) * 20);
             break;
         }
-        case 2: {
+        case 2: {//Oben
             position = customMod(personPosition - 20, populationCount);
             break;
         }
-        case 3: {
+        case 3: {//Unten
             position = customMod(personPosition + 20, populationCount);
             break;
         }
@@ -103,6 +110,12 @@ void outputGrid(){
     }
     cout << output.str() << endl;
 }
+
+//Gibt die Anzahl der Durchläufe aus
+void outputCounter(int counter){
+    cout << counter << endl;
+}
+
 //Gibt den Gewinner aus
 void outputWinner(int winner, int outputCounter){
     system("cls");
