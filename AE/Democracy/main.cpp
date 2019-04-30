@@ -11,7 +11,7 @@ using namespace std;
 const int populationCount = 400;
 int populationArray[populationCount];
 const int sleepingTime = 100;
-const int outputs = 1000000;
+const int outputs = 10000;
 
 //Methodens
 void outputGrid();
@@ -26,17 +26,16 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     //50:50 Bevölkerung
     for(int i = 0; i < populationCount; i++){
-        populationArray[i] = rand()%2;
-        //if(i<200){populationArray[i] = 0;}
-        //else{populationArray[i] = 1;}
+        //populationArray[i] = rand()%2;
+        if(i<200){populationArray[i] = 0;}
+        else{populationArray[i] = 1;}
     }
     int countOutputs = 1;
     system("title Demokratur");
     outputGrid();
     while (cin.get() != '\n');
     while(1){
-
-        int randomPerson = (rand()%21)*(rand()%21);
+        int randomPerson = rand()%400;
         convince(randomPerson);
         if (countOutputs % outputs == 0){
             system("cls");
@@ -84,7 +83,7 @@ void convince(int personPosition) {
         }
     }
 }
-
+//Das Ergebnis ist immer positiv, auch bei einer negativen Zahl a
 int customMod(int a, int b){
     return (a%b+b)%b;
 }
