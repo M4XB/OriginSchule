@@ -1,0 +1,13 @@
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.MainWindow.resources
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.Resources.resources
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.vbproj.GenerateResource.cache
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.vbproj.CoreCompileInputs.cache
+C:\Users\M4X\source\repos\Democracy\Democracy\bin\Debug\Democracy.exe.config
+C:\Users\M4X\source\repos\Democracy\Democracy\bin\Debug\Democracy.exe
+C:\Users\M4X\source\repos\Democracy\Democracy\bin\Debug\Democracy.pdb
+C:\Users\M4X\source\repos\Democracy\Democracy\bin\Debug\Democracy.xml
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.exe
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.xml
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.pdb
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.vbprojAssemblyReference.cache
+C:\Users\M4X\source\repos\Democracy\Democracy\obj\Debug\Democracy.customPreset.resources

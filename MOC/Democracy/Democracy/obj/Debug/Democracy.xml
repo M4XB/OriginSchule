@@ -1,0 +1,39 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Democracy
+</name>
+</assembly>
+<members>
+<member name="T:Democracy.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Democracy.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Democracy.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Democracy.Democracy.Person.Person.getNeighbours">
+ <summary>
+ Function to fill the array of the neighbours wit their positions in the array
+ </summary>
+</member>
+<member name="M:Democracy.Democracy.Person.Person.findNeighbours(System.Int32,System.Int32)">
+ <summary>
+ Gets the Position of the neighbour with the given Directions and lane
+ </summary>
+ <param name="xDirection">-1 means to the left, 1 to the right, 0 ignore</param>
+ <param name="yDirection">-1 means to the top, 1 to the bottom, 0 ignore</param>
+ <returns></returns>
+</member>
+</members>
+</doc>
