@@ -22,5 +22,11 @@ WindowsApp1
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:WindowsApp1.Form1.Calculate(System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="input">EIngabe als String</param>
+</member>
 </members>
 </doc>

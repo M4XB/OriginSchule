@@ -2,19 +2,73 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+    ''' <summary>
+    ''' Im String wird nach Rechenoperatoren geschaut. 
+    ''' Wird einer gefunden, so wird er in die Liste für Operatoren eingetragen und sein Index in die Liste für die Indexe der Operatoren eingetragen
+    ''' Der erste Wert (vor dem ersten Operator) wird in die Liste für Werte eingetragen
+    ''' Alle Werte, die dann zwischen zwischen 2 Operatoren stehen, werden bestimmt und auch in die Liste für WErte eingetragen
+    ''' Der letzte Wert (nach dem letzten Operator) wird auch in die Liste für Werte eingetragen
+    ''' </summary>
+    ''' <param name="input">Eingabe als String</param>
+    Private Sub Calculate(input As String)
+        Dim res As Integer
+        Dim values As New List(Of Integer)
+        Dim operators As New List(Of Char)
+        Dim indexOfOperators As New List(Of Integer)
+        indexOfOperators.Add(0)
+        Dim countOfOperators As Integer
+        For i = 0 To input.Length
 
+            If i <> input.Length Then
+                If input.Substring(i, 1) = "+" OrElse
+                   input.Substring(i, 1) = "-" OrElse
+                   input.Substring(i, 1) = "*" OrElse
+                   input.Substring(i, 1) = "/" Then
+                    countOfOperators += 1
+                    indexOfOperators.Add(i)
+                    operators.Add(input.Substring(i, 1))
+                    If values.Capacity = 0 Then
+                        If i = 1 Then
+                            values.Add(input.Substring(0, 1))
+                        Else
+                            values.Add(input.Substring(0, i - 1))
+                        End If
+                    Else
+                        'firstIndexOfValue: der hinzugefügte Index im letzten Durchlauf +1
+                        'lengthOfValue: Index des gerade hinzugefügten Index - den hinzugefügten Index aus dem letzten Durchlauf
+                        Dim firstIndexOfValue = indexOfOperators(countOfOperators - 1) + 1
+                        Dim lengthofValue = indexOfOperators(countOfOperators) - (indexOfOperators(countOfOperators - 1))
+                        values.Add(input.Substring(firstIndexOfValue, lengthofValue))
+                    End If
+
+                End If
+            Else
+                values.Add(input.Substring(indexOfOperators.Last, i - indexOfOperators.Last))
+            End If
+        Next
+
+
+
+        OutputBox.Text = res
+    End Sub
+
+    Private Sub Button_Equals_Click(sender As Object, e As EventArgs) Handles Button_Equals.Click
+        Dim input = inputBox.Text
+        Calculate(input)
+    End Sub
+    'Addition
     Private Function Addition(firstValue As Double, seconValue As Double) As Double
         Return firstValue + seconValue
     End Function
-
+    'Substraktion
     Private Function Substraction(firstValue As Double, seconValue As Double) As Double
         Return firstValue - seconValue
     End Function
-
+    'Multiplikation
     Private Function Multiplication(firstValue As Double, seconValue As Double) As Double
         Return firstValue * seconValue
     End Function
-
+    'Division
     Private Function Division(firstValue As Double, seconValue As Double) As Double
         Return firstValue / seconValue
     End Function
@@ -23,64 +77,4 @@
 
     End Sub
 
-    Private Sub Button_Equals_Click(sender As Object, e As EventArgs) Handles Button_Equals.Click
-        Dim input = inputBox.Text
-        Calculate(input)
-    End Sub
-
-    Private Sub Calculate(input As String)
-        Dim firstValue As Double?
-        Dim secondValue As Double?
-        Dim calcType As String = ""
-        Dim indexOfCalcType As Integer?
-        Dim res As Double?
-        Dim intermimResult As Double?
-        For i = 0 To input.Length
-            If input.Substring(i, 1) = "+" OrElse
-               input.Substring(i, 1) = "-" OrElse
-               input.Substring(i, 1) = "*" OrElse
-               input.Substring(i, 1) = "/" OrElse
-               i = input.Length - 1 Then
-
-                If intermimResult.HasValue Then
-                    indexOfCalcType = i - 1
-                    calcType = input.Substring(indexOfCalcType, 1)
-                End If
-
-                If indexOfCalcType.HasValue AndAlso firstValue.HasValue Then
-                    secondValue = input.Substring(indexOfCalcType + 1, i - indexOfCalcType)
-                End If
-
-                If Not firstValue.HasValue Then
-                    firstValue = input.Substring(0, i)
-                    indexOfCalcType = i
-                    calcType = input.Substring(i, 1)
-                End If
-            End If
-
-            If firstValue.HasValue AndAlso secondValue.HasValue Then
-                Select Case calcType
-                    Case "+"
-                        intermimResult = Addition(firstValue, secondValue)
-                    Case "-"
-                        intermimResult = Substraction(firstValue, secondValue)
-                    Case "*"
-                        intermimResult = Multiplication(firstValue, secondValue)
-                    Case "/"
-                        intermimResult = Division(firstValue, secondValue)
-                End Select
-            End If
-            If firstValue.HasValue AndAlso secondValue.HasValue Then
-                If i = input.Length - 1 Then
-                    res = intermimResult
-                    Exit For
-                Else
-                    firstValue = intermimResult
-                    secondValue = Nothing
-                End If
-            End If
-
-        Next
-        OutputBox.Text = res
-    End Sub
 End Class
