@@ -24,9 +24,13 @@ WindowsApp1
 </member>
 <member name="M:WindowsApp1.Form1.Calculate(System.String)">
  <summary>
- 
+ Im String wird nach Rechenoperatoren geschaut. 
+ Wird einer gefunden, so wird er in die Liste für Operatoren eingetragen und sein Index in die Liste für die Indexe der Operatoren eingetragen
+ Der erste Wert (vor dem ersten Operator) wird in die Liste für Werte eingetragen
+ Alle Werte, die dann zwischen zwischen 2 Operatoren stehen, werden bestimmt und auch in die Liste für WErte eingetragen
+ Der letzte Wert (nach dem letzten Operator) wird auch in die Liste für Werte eingetragen
  </summary>
- <param name="input">EIngabe als String</param>
+ <param name="input">Eingabe als String</param>
 </member>
 </members>
 </doc>

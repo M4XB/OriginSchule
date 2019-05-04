@@ -18,7 +18,6 @@
         indexOfOperators.Add(0)
         Dim countOfOperators As Integer
         For i = 0 To input.Length
-
             If i <> input.Length Then
                 If input.Substring(i, 1) = "+" OrElse
                    input.Substring(i, 1) = "-" OrElse
@@ -27,7 +26,7 @@
                     countOfOperators += 1
                     indexOfOperators.Add(i)
                     operators.Add(input.Substring(i, 1))
-                    If values.Capacity = 0 Then
+                    If values.Count = 0 Then
                         If i = 1 Then
                             values.Add(input.Substring(0, 1))
                         Else
@@ -37,17 +36,30 @@
                         'firstIndexOfValue: der hinzugefügte Index im letzten Durchlauf +1
                         'lengthOfValue: Index des gerade hinzugefügten Index - den hinzugefügten Index aus dem letzten Durchlauf
                         Dim firstIndexOfValue = indexOfOperators(countOfOperators - 1) + 1
-                        Dim lengthofValue = indexOfOperators(countOfOperators) - (indexOfOperators(countOfOperators - 1))
+                        Dim lengthofValue = indexOfOperators(countOfOperators) - firstIndexOfValue
                         values.Add(input.Substring(firstIndexOfValue, lengthofValue))
                     End If
-
                 End If
             Else
-                values.Add(input.Substring(indexOfOperators.Last, i - indexOfOperators.Last))
+                values.Add(input.Substring(indexOfOperators.Last + 1, (i - indexOfOperators.Last) - 1))
             End If
         Next
 
+        For Each op In operators
+            If op = "*" Then
 
+            ElseIf op = "/" Then
+
+            End If
+        Next
+
+        For operatorIndex = 0 To operators.Count - 1
+            If operators(operatorIndex) = "*" Then
+
+            ElseIf operators(operatorIndex) = "/" Then
+
+            End If
+        Next
 
         OutputBox.Text = res
     End Sub
