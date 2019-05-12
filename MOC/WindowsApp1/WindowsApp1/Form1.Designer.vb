@@ -25,18 +25,21 @@ Partial Class Form1
         Me.inputBox = New System.Windows.Forms.TextBox()
         Me.Button_Equals = New System.Windows.Forms.Button()
         Me.OutputBox = New System.Windows.Forms.TextBox()
+        Me.Button_Delete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'inputBox
         '
+        Me.inputBox.Font = New System.Drawing.Font("Calibri Light", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.inputBox.Location = New System.Drawing.Point(34, 32)
         Me.inputBox.Name = "inputBox"
-        Me.inputBox.Size = New System.Drawing.Size(333, 20)
+        Me.inputBox.Size = New System.Drawing.Size(333, 32)
         Me.inputBox.TabIndex = 0
         '
         'Button_Equals
         '
-        Me.Button_Equals.Location = New System.Drawing.Point(436, 331)
+        Me.Button_Equals.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Equals.Location = New System.Drawing.Point(436, 77)
         Me.Button_Equals.Name = "Button_Equals"
         Me.Button_Equals.Size = New System.Drawing.Size(129, 28)
         Me.Button_Equals.TabIndex = 1
@@ -45,10 +48,21 @@ Partial Class Form1
         '
         'OutputBox
         '
+        Me.OutputBox.Font = New System.Drawing.Font("Calibri Light", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OutputBox.Location = New System.Drawing.Point(418, 32)
         Me.OutputBox.Name = "OutputBox"
-        Me.OutputBox.Size = New System.Drawing.Size(147, 20)
+        Me.OutputBox.Size = New System.Drawing.Size(147, 32)
         Me.OutputBox.TabIndex = 2
+        '
+        'Button_Delete
+        '
+        Me.Button_Delete.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Delete.Location = New System.Drawing.Point(436, 122)
+        Me.Button_Delete.Name = "Button_Delete"
+        Me.Button_Delete.Size = New System.Drawing.Size(129, 28)
+        Me.Button_Delete.TabIndex = 3
+        Me.Button_Delete.Text = "Delete"
+        Me.Button_Delete.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -56,6 +70,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(577, 450)
+        Me.Controls.Add(Me.Button_Delete)
         Me.Controls.Add(Me.OutputBox)
         Me.Controls.Add(Me.Button_Equals)
         Me.Controls.Add(Me.inputBox)
@@ -69,4 +84,5 @@ Partial Class Form1
     Friend WithEvents inputBox As TextBox
     Friend WithEvents Button_Equals As Button
     Friend WithEvents OutputBox As TextBox
+    Friend WithEvents Button_Delete As Button
 End Class

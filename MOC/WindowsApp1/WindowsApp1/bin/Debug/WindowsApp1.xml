@@ -32,5 +32,23 @@ WindowsApp1
  </summary>
  <param name="input">Eingabe als String</param>
 </member>
+<member name="M:WindowsApp1.Form1.RefactoringLists(System.Int32)">
+ <summary>
+ Diese Funktion wird nach dem Multiplizieren und nach dem Dividieren aufgerufen, um die Liste der Werte und der Operatoren zu kürzen
+ </summary>
+ <param name="operatorIndex">Index des Operators</param>
+</member>
+<member name="M:WindowsApp1.Form1.getNumberOfDotOperators">
+ <summary>
+ Ermittelt die Anzahl der Punkt Operatoren in der Eingabe für den Abbruch der For Schleife für die Punkt Operatoren
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WindowsApp1.Form1.getNumberOfDashOperators">
+ <summary>
+ Ermittelt die Anzahl der Strich Operatoren in der Eingabe für den Abbruch der For Schleife für die Strich Operatoren
+ </summary>
+ <returns></returns>
+</member>
 </members>
 </doc>
