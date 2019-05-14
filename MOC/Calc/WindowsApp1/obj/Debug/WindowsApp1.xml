@@ -50,5 +50,19 @@ WindowsApp1
  </summary>
  <returns></returns>
 </member>
+<member name="M:WindowsApp1.Form1.Button_Equals_Click(System.Object,System.EventArgs)">
+ <summary>
+ 
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:WindowsApp1.Form1.Button_Delete_Click(System.Object,System.EventArgs)">
+ <summary>
+ Setzt alle Listen, sowie die Input und Output Box auf Nothing
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 </members>
 </doc>

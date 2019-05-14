@@ -26,6 +26,7 @@ Partial Class Form1
         Me.Button_Equals = New System.Windows.Forms.Button()
         Me.OutputBox = New System.Windows.Forms.TextBox()
         Me.Button_Delete = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'inputBox
@@ -64,18 +65,29 @@ Partial Class Form1
         Me.Button_Delete.Text = "Delete"
         Me.Button_Delete.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Calibri Light", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(383, 35)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(20, 24)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "="
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(577, 450)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button_Delete)
         Me.Controls.Add(Me.OutputBox)
         Me.Controls.Add(Me.Button_Equals)
         Me.Controls.Add(Me.inputBox)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Calc"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -85,4 +97,5 @@ Partial Class Form1
     Friend WithEvents Button_Equals As Button
     Friend WithEvents OutputBox As TextBox
     Friend WithEvents Button_Delete As Button
+    Friend WithEvents Label1 As Label
 End Class

@@ -16,7 +16,6 @@
     ''' </summary>
     ''' <param name="input">Eingabe als String</param>
     Private Sub Calculate(input As String)
-        Dim res As Integer
         Dim indexOfOperators As New List(Of Integer)
         indexOfOperators.Add(0)
         Dim countOfOperators As Integer
@@ -81,8 +80,8 @@
             End If
         Next
 
-        res = values(0)
-        OutputBox.Text = res
+        'Gibt das Ergebnis in der OutputBox aus
+        OutputBox.Text = values(0)
     End Sub
 
     ''' <summary>
@@ -155,9 +154,18 @@
 
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub Button_Equals_Click(sender As Object, e As EventArgs) Handles Button_Equals.Click
-        Dim input = inputBox.Text
-        Calculate(input)
+        If Not inputBox.Text = "" Then
+            Calculate(inputBox.Text)
+        Else
+            MsgBox("Es wurde kein Term zur Berechnung angegeben!")
+        End If
+
     End Sub
 
     ''' <summary>
