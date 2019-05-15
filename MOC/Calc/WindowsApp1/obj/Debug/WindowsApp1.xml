@@ -22,37 +22,9 @@ WindowsApp1
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:WindowsApp1.Form1.Calculate(System.String)">
- <summary>
- Im String wird nach Rechenoperatoren geschaut. 
- Wird einer gefunden, so wird er in die Liste für Operatoren eingetragen und sein Index in die Liste für die Indexe der Operatoren eingetragen
- Der erste Wert (vor dem ersten Operator) wird in die Liste für Werte eingetragen
- Alle Werte, die dann zwischen zwischen 2 Operatoren stehen, werden bestimmt und auch in die Liste für WErte eingetragen
- Der letzte Wert (nach dem letzten Operator) wird auch in die Liste für Werte eingetragen
- </summary>
- <param name="input">Eingabe als String</param>
-</member>
-<member name="M:WindowsApp1.Form1.RefactoringLists(System.Int32)">
- <summary>
- Diese Funktion wird nach dem Multiplizieren und nach dem Dividieren aufgerufen, um die Liste der Werte und der Operatoren zu kürzen
- </summary>
- <param name="operatorIndex">Index des Operators</param>
-</member>
-<member name="M:WindowsApp1.Form1.getNumberOfDotOperators">
- <summary>
- Ermittelt die Anzahl der Punkt Operatoren in der Eingabe für den Abbruch der For Schleife für die Punkt Operatoren
- </summary>
- <returns></returns>
-</member>
-<member name="M:WindowsApp1.Form1.getNumberOfDashOperators">
- <summary>
- Ermittelt die Anzahl der Strich Operatoren in der Eingabe für den Abbruch der For Schleife für die Strich Operatoren
- </summary>
- <returns></returns>
-</member>
 <member name="M:WindowsApp1.Form1.Button_Equals_Click(System.Object,System.EventArgs)">
  <summary>
- 
+ Wenn ein Term angegeben wird, wird dieser zur Berechnung weiter gegeben, ansonsten wird eine Fehlermeldung geworfen
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
@@ -63,6 +35,42 @@ WindowsApp1
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
+</member>
+<member name="M:WindowsApp1.Form1.Button_Reset_Click(System.Object,System.EventArgs)">
+ <summary>
+ Setzt nur die Internen Listen zurück. lässt dem Benutzer aber seine Eingabe stehen
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:WindowsApp1.Form1.Calculate(System.String)">
+ <summary>
+ Im String wird nach Rechenoperatoren geschaut. 
+ Wird einer gefunden, so wird er in die Liste für Operatoren eingetragen und sein Index in die Liste für die Indexe der Operatoren eingetragen
+ Der erste Wert (vor dem ersten Operator) wird in die Liste für Werte eingetragen
+ Alle Werte, die dann zwischen zwischen 2 Operatoren stehen, werden bestimmt und auch in die Liste für Werte eingetragen
+ Der letzte Wert (nach dem letzten Operator) wird auch in die Liste für Werte eingetragen
+ </summary>
+ <param name="input">Eingabe als String</param>
+</member>
+<member name="M:WindowsApp1.Form1.RefactoringLists(System.Int32)">
+ <summary>
+ Diese Funktion wird nach dem Addieren, Substrahieren, Multiplizieren und nach dem Dividieren aufgerufen, 
+ um die Liste der Werte und der Operatoren zu kürzen
+ </summary>
+ <param name="operatorIndex">Index des Operators</param>
+</member>
+<member name="M:WindowsApp1.Form1.getNumberOfDotOperators">
+ <summary>
+ Ermittelt die Anzahl der Punkt Operatoren (* und /) in der Eingabe für den Abbruch der For Schleife für die Punkt Operatoren
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WindowsApp1.Form1.getNumberOfDashOperators">
+ <summary>
+ Ermittelt die Anzahl der Strich (+ und -) Operatoren in der Eingabe für den Abbruch der For Schleife für die Strich Operatoren
+ </summary>
+ <returns></returns>
 </member>
 </members>
 </doc>
