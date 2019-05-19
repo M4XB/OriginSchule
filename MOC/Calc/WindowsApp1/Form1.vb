@@ -224,7 +224,7 @@
     ''' <param name="value">Wert</param>
     ''' <returns></returns>
     Private Function ReplaceBracketWithValue(input As String, startIndex As Integer, endIndex As Integer, value As Double) As String
-        Dim res
+        Dim res = input
 
         Return res
     End Function
