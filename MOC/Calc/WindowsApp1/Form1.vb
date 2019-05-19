@@ -33,30 +33,11 @@
         OutputBox.Text = Nothing
     End Sub
 
-    ''' <summary>
-    ''' Setzt nur die Internen Listen zurück. lässt dem Benutzer aber seine Eingabe stehen
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub Button_Reset_Click(sender As Object, e As EventArgs) Handles Button_Reset.Click
-        operators = New List(Of Char)
-        values = New List(Of Double)
-    End Sub
-
     Private Sub Main(input As String)
         Dim numberofBrackets = 0
         Dim openBracketIndex = New List(Of Integer)
         Dim closedBracketIndex = New List(Of Integer)
-        For index = 1 To input.Length
-            If input.Substring(index) = "(" OrElse input.Substring(index) = ")" Then
-                numberofBrackets += 1
-                If input.Substring(index) = "(" Then
-                    openBracketIndex.Add(index)
-                ElseIf input.Substring(index) = ")" Then
-                    closedBracketIndex.Add(index)
-                End If
-            End If
-        Next
+        getBracketIndex(input, numberofBrackets, openBracketIndex, closedBracketIndex)
         If Not numberofBrackets Mod 2 = 0 Then
             MsgBox("Es gibt noch offene Klammern!")
         End If
@@ -66,15 +47,26 @@
             Dim innerBracket = numberofBrackets / 2
             If innerBrackets(input) = True Then
 
-            Else
-                For index = 1 To openBracketIndex.Count
-                    Dim buffer = Calculate(input.Substring(openBracketIndex(index), closedBracketIndex(index) - openBracketIndex(index) - 1))
-
+            Else 'Berechnet die Klammern, wenn die Kammern nur hintereinander sind
+                For index = 0 To innerBracket - 1
+                    openBracketIndex = New List(Of Integer)
+                    closedBracketIndex = New List(Of Integer)
+                    getBracketIndex(input, 0, openBracketIndex, closedBracketIndex)
+                    Dim buffer As Double
+                    If openBracketIndex.Count = 1 Then
+                        buffer = Calculate(input.Substring(openBracketIndex(0) + 1, closedBracketIndex(0) - openBracketIndex(0) - 1))
+                    Else
+                        buffer = Calculate(input.Substring(openBracketIndex(index) + 1, closedBracketIndex(index) - openBracketIndex(index) - 1))
+                    End If
+                    If openBracketIndex.Count = 1 Then
+                        input = ReplaceBracketWithValue(input, openBracketIndex(0), closedBracketIndex(0), buffer)
+                    Else
+                        input = ReplaceBracketWithValue(input, openBracketIndex(index), closedBracketIndex(index), buffer)
+                    End If
                 Next
             End If
         End If
-
-
+        OutputBox.Text = Calculate(input).ToString
     End Sub
 
     ''' <summary>
@@ -86,6 +78,8 @@
     ''' </summary>
     ''' <param name="input">Eingabe als String</param>
     Private Function Calculate(input As String) As Double
+        operators = New List(Of Char)
+        values = New List(Of Double)
         Dim indexOfOperators As New List(Of Integer)
         indexOfOperators.Add(0)
         Dim countOfOperators As Integer
@@ -205,15 +199,37 @@
     ''' <returns></returns>
     Private Function innerBrackets(input As String) As Boolean
         Dim firstOpenBracket = input.IndexOf("(")
-        Dim firstClosedBracket = input.IndexOf(")")
         Dim buffedInput = input.Remove(firstOpenBracket, 1)
+        Dim firstClosedBracket = buffedInput.IndexOf(")")
         Dim secondOpenBracket = buffedInput.IndexOf("(")
-        If secondOpenBracket < firstClosedBracket Then
-            Return True
-        Else
+        If secondOpenBracket < 0 Then
             Return False
+        ElseIf secondOpenBracket > firstClosedBracket Then
+            Return False
+        Else
+            Return True
         End If
     End Function
+
+    ''' <summary>
+    ''' Die Methode ermittelt die Indexe der öffnenden und schließenden Klammer und die Anzahl an Klammern im übergebenen String
+    ''' </summary>
+    ''' <param name="input">Input</param>
+    ''' <param name="numberofBrackets">Anzahl der Klammern</param>
+    ''' <param name="openBracketIndex">Liste mit den Indexen der geöffneten Klammern</param>
+    ''' <param name="closedBracketIndex">Liste mit den Indexen der geschlossenen Klammern</param>
+    Private Sub getBracketIndex(input As String, ByRef numberofBrackets As Integer, ByRef openBracketIndex As List(Of Integer), ByRef closedBracketIndex As List(Of Integer))
+        For index = 0 To input.Length - 1
+            If input.Substring(index, 1) = "(" OrElse input.Substring(index, 1) = ")" Then
+                numberofBrackets += 1
+                If input.Substring(index, 1) = "(" Then
+                    openBracketIndex.Add(index)
+                ElseIf input.Substring(index, 1) = ")" Then
+                    closedBracketIndex.Add(index)
+                End If
+            End If
+        Next
+    End Sub
 
     ''' <summary>
     ''' Die Funktion ersetzt den durch die Indexe festgelegten Bereich im String durch den Wert und gibt das Ergebnis dann zurück
@@ -224,9 +240,15 @@
     ''' <param name="value">Wert</param>
     ''' <returns></returns>
     Private Function ReplaceBracketWithValue(input As String, startIndex As Integer, endIndex As Integer, value As Double) As String
-        Dim res = input
+        Dim valueAsArray = value.ToString.ToCharArray
+        Dim inputAsArray = input.ToCharArray
 
-        Return res
+        For index = 0 To valueAsArray.Count - 1
+            inputAsArray(startIndex + index) = valueAsArray(index)
+        Next
+        Dim changedInput As New String(inputAsArray)
+        Dim finalChange = changedInput.Remove(startIndex + 1, endIndex - startIndex)
+        Return finalChange
     End Function
 
 

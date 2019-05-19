@@ -27,7 +27,6 @@ Partial Class Form1
         Me.OutputBox = New System.Windows.Forms.TextBox()
         Me.Button_Delete = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button_Reset = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'inputBox
@@ -76,28 +75,19 @@ Partial Class Form1
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "="
         '
-        'Button_Reset
-        '
-        Me.Button_Reset.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Reset.Location = New System.Drawing.Point(436, 145)
-        Me.Button_Reset.Name = "Button_Reset"
-        Me.Button_Reset.Size = New System.Drawing.Size(129, 28)
-        Me.Button_Reset.TabIndex = 4
-        Me.Button_Reset.Text = "Reset"
-        Me.Button_Reset.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(577, 450)
-        Me.Controls.Add(Me.Button_Reset)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button_Delete)
         Me.Controls.Add(Me.OutputBox)
         Me.Controls.Add(Me.Button_Equals)
         Me.Controls.Add(Me.inputBox)
+        Me.Font = New System.Drawing.Font("Calibri Light", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
         Me.Text = "Calc"
         Me.ResumeLayout(False)
@@ -110,5 +100,4 @@ Partial Class Form1
     Friend WithEvents OutputBox As TextBox
     Friend WithEvents Button_Delete As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button_Reset As Button
 End Class

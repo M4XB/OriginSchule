@@ -36,13 +36,6 @@ WindowsApp1
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:WindowsApp1.Form1.Button_Reset_Click(System.Object,System.EventArgs)">
- <summary>
- Setzt nur die Internen Listen zurück. lässt dem Benutzer aber seine Eingabe stehen
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
-</member>
 <member name="M:WindowsApp1.Form1.Calculate(System.String)">
  <summary>
  Im String wird nach Rechenoperatoren geschaut. 
@@ -70,6 +63,33 @@ WindowsApp1
  <summary>
  Ermittelt die Anzahl der Strich (+ und -) Operatoren in der Eingabe für den Abbruch der For Schleife für die Strich Operatoren
  </summary>
+ <returns></returns>
+</member>
+<member name="M:WindowsApp1.Form1.innerBrackets(System.String)">
+ <summary>
+ Die Funktion ermittelt, ob es Klammern in Klammern gibt
+ Bsp.: (5-(1+3*2)+5)*2
+ </summary>
+ <param name="input"></param>
+ <returns></returns>
+</member>
+<member name="M:WindowsApp1.Form1.getBracketIndex(System.String,System.Int32@,System.Collections.Generic.List{System.Int32}@,System.Collections.Generic.List{System.Int32}@)">
+ <summary>
+ Die Methode ermittelt die Indexe der öffnenden und schließenden Klammer und die Anzahl an Klammern im übergebenen String
+ </summary>
+ <param name="input">Input</param>
+ <param name="numberofBrackets">Anzahl der Klammern</param>
+ <param name="openBracketIndex">Liste mit den Indexen der geöffneten Klammern</param>
+ <param name="closedBracketIndex">Liste mit den Indexen der geschlossenen Klammern</param>
+</member>
+<member name="M:WindowsApp1.Form1.ReplaceBracketWithValue(System.String,System.Int32,System.Int32,System.Double)">
+ <summary>
+ Die Funktion ersetzt den durch die Indexe festgelegten Bereich im String durch den Wert und gibt das Ergebnis dann zurück
+ </summary>
+ <param name="input">Eingabe</param>
+ <param name="startIndex">Geöffnete Klammer</param>
+ <param name="endIndex">geschlossene Klammer</param>
+ <param name="value">Wert</param>
  <returns></returns>
 </member>
 </members>
