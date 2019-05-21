@@ -14,7 +14,9 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_Equals_Click(sender As Object, e As EventArgs) Handles Button_Equals.Click
-        If Not inputBox.Text = "" Then
+        If DoubleOperators(inputBox.Text) Then
+            MsgBox("Es gibt 2 Operator, die direkt aneinander stehen!")
+        ElseIf Not inputBox.Text = "" Then
             Main(inputBox.Text)
         Else
             MsgBox("Es wurde kein Term zur Berechnung angegeben!")
@@ -33,6 +35,11 @@
         OutputBox.Text = Nothing
     End Sub
 
+    ''' <summary>
+    ''' Die Hauptmethode, die das Berechnen des übergebenen Strings ausführt
+    ''' Das Ergebnis wird dann in der Output Box ausgegeben
+    ''' </summary>
+    ''' <param name="input">Term, der berechnet werden soll</param>
     Private Sub Main(input As String)
         Dim numberofBrackets = 0
         Dim openBracketIndex = New List(Of Integer)
@@ -45,26 +52,38 @@
             Calculate(input)
         Else
             Dim innerBracket = numberofBrackets / 2
-            If innerBrackets(input) = True Then
-
-            Else 'Berechnet die Klammern, wenn die Kammern nur hintereinander sind
-                For index = 0 To innerBracket - 1
-                    openBracketIndex = New List(Of Integer)
-                    closedBracketIndex = New List(Of Integer)
-                    getBracketIndex(input, 0, openBracketIndex, closedBracketIndex)
-                    Dim buffer As Double
-                    If openBracketIndex.Count = 1 Then
-                        buffer = Calculate(input.Substring(openBracketIndex(0) + 1, closedBracketIndex(0) - openBracketIndex(0) - 1))
-                    Else
-                        buffer = Calculate(input.Substring(openBracketIndex(index) + 1, closedBracketIndex(index) - openBracketIndex(index) - 1))
-                    End If
-                    If openBracketIndex.Count = 1 Then
-                        input = ReplaceBracketWithValue(input, openBracketIndex(0), closedBracketIndex(0), buffer)
-                    Else
-                        input = ReplaceBracketWithValue(input, openBracketIndex(index), closedBracketIndex(index), buffer)
-                    End If
-                Next
-            End If
+            Dim innerBracketsExist = innerBrackets(input)
+            'Berechnet die Klammern, die ineinander sind
+            While innerBracketsExist = True
+                openBracketIndex = New List(Of Integer)
+                closedBracketIndex = New List(Of Integer)
+                getBracketIndex(input, 0, openBracketIndex, closedBracketIndex)
+                Dim nextHighestClosedBracket = GetnextHighestClosedBracket(openBracketIndex.Last, closedBracketIndex)
+                Dim buffer = Calculate(input.Substring(openBracketIndex.Last + 1, nextHighestClosedBracket - openBracketIndex.Last - 1))
+                input = ReplaceBracketWithValue(input, openBracketIndex.Last, nextHighestClosedBracket, buffer)
+                innerBracketsExist = innerBrackets(input)
+            End While
+            'Berechnet die Klammern, wenn die Kammern nur hintereinander sind
+            For index = 0 To innerBracket - 1
+                openBracketIndex = New List(Of Integer)
+                closedBracketIndex = New List(Of Integer)
+                getBracketIndex(input, 0, openBracketIndex, closedBracketIndex)
+                Dim buffer As Double
+                If openBracketIndex.Count = 1 Then
+                    buffer = Calculate(input.Substring(openBracketIndex(0) + 1, closedBracketIndex(0) - openBracketIndex(0) - 1))
+                ElseIf openBracketIndex.Count = 0 Then
+                    Exit For
+                Else
+                    buffer = Calculate(input.Substring(openBracketIndex(index) + 1, closedBracketIndex(index) - openBracketIndex(index) - 1))
+                End If
+                If openBracketIndex.Count = 1 Then
+                    input = ReplaceBracketWithValue(input, openBracketIndex(0), closedBracketIndex(0), buffer)
+                ElseIf openBracketIndex.Count = 0 Then
+                    Exit For
+                Else
+                    input = ReplaceBracketWithValue(input, openBracketIndex(index), closedBracketIndex(index), buffer)
+                End If
+            Next
         End If
         OutputBox.Text = Calculate(input).ToString
     End Sub
@@ -111,7 +130,6 @@
                 values.Add(input.Substring(indexOfOperators.Last + 1, (i - indexOfOperators.Last) - 1))
             End If
         Next
-
         'Für die Punkt vor Strich Rechnung wird hier nach den Punkt Operatoren gesucht und die jeweiligen Zahlen miteinander multipliziert bzw. dividiert
         For operatorIndex = 0 To operators.Count - 1
             If getNumberOfDotOperators() = 0 Then Exit For
@@ -145,6 +163,7 @@
         Next
 
         'Gibt das Ergebnis in der OutputBox aus
+
         Return values(0)
     End Function
 
@@ -247,10 +266,48 @@
             inputAsArray(startIndex + index) = valueAsArray(index)
         Next
         Dim changedInput As New String(inputAsArray)
-        Dim finalChange = changedInput.Remove(startIndex + 1, endIndex - startIndex)
-        Return finalChange
+        If valueAsArray.Count = 1 Then
+            Dim finalChange = changedInput.Remove(startIndex + 1, endIndex - startIndex)
+            Return finalChange
+        Else
+            Dim finalChange = changedInput.Remove(startIndex + valueAsArray.Count, endIndex - startIndex - 1)
+            Return finalChange
+        End If
     End Function
 
+    ''' <summary>
+    ''' Ermittelt, ob in dem übergebenen String zwei Operator (+,-,*,/,^) direkt aneinander stehen
+    ''' Ist dies der Fall gibt die Methode ein True zurück, ansonsten ein False
+    ''' </summary>
+    ''' <param name="input"></param>
+    ''' <returns></returns>
+    Private Function DoubleOperators(input As String) As Boolean
+        Dim bufferChar = input.First
+        For index = 1 To input.Length - 1
+            If (input.Substring(index, 1) = "+" OrElse
+                input.Substring(index, 1) = "-" OrElse
+                input.Substring(index, 1) = "*" OrElse
+                input.Substring(index, 1) = "/" OrElse
+                input.Substring(index, 1) = "^") AndAlso (
+                bufferChar = "+" OrElse
+                bufferChar = "-" OrElse
+                bufferChar = "*" OrElse
+                bufferChar = "/" OrElse
+                bufferChar = "^") Then
+                Return True
+            Else
+                bufferChar = input.Substring(index, 1)
+            End If
+        Next
+        Return False
+    End Function
+
+
+    Private Function GetnextHighestClosedBracket(opendBrackedIndex As Integer, closedBracketList As List(Of Integer)) As Integer
+        For index = 0 To closedBracketList.Count - 1
+            If closedBracketList(index) > opendBrackedIndex Then Return closedBracketList(index)
+        Next
+    End Function
 
     'Addition
     Private Function Addition(firstValue As Double, secondValue As Double) As Double

@@ -36,6 +36,13 @@ WindowsApp1
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:WindowsApp1.Form1.Main(System.String)">
+ <summary>
+ Die Hauptmethode, die das Berechnen des übergebenen Strings ausführt
+ Das Ergebnis wird dann in der Output Box ausgegeben
+ </summary>
+ <param name="input">Term, der berechnet werden soll</param>
+</member>
 <member name="M:WindowsApp1.Form1.Calculate(System.String)">
  <summary>
  Im String wird nach Rechenoperatoren geschaut. 
@@ -90,6 +97,14 @@ WindowsApp1
  <param name="startIndex">Geöffnete Klammer</param>
  <param name="endIndex">geschlossene Klammer</param>
  <param name="value">Wert</param>
+ <returns></returns>
+</member>
+<member name="M:WindowsApp1.Form1.DoubleOperators(System.String)">
+ <summary>
+ Ermittelt, ob in dem übergebenen String zwei Operator (+,-,*,/,^) direkt aneinander stehen
+ Ist dies der Fall gibt die Methode ein True zurück, ansonsten ein False
+ </summary>
+ <param name="input"></param>
  <returns></returns>
 </member>
 </members>

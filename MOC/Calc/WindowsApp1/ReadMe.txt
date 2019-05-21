@@ -23,3 +23,6 @@ Sonst direkt das Berechnen mit ganzem Term aufrufen
 
 --> Es wird eine Sub vor der Sub Calculate benötigt, die die Sachen zu den Klammern macht
 --> Beim Klicken des Equals Buttons wird dann zunächst diese Sub aufgerufen
+
+Der Calc kann nun mit Klammern rechnen, wenn sie nacheinander stehen und nicht ineinander
+Zudem wird am Anfang geprüft, ob 2 Operatoren direkt aneinander stehen, da dies zu einem harten Fehler führt
