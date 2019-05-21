@@ -1,0 +1,12 @@
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\bin\Debug\WindowsApp1.exe
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\bin\Debug\WindowsApp1.pdb
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\bin\Debug\WindowsApp1.xml
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.vbprojAssemblyReference.cache
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\WindowsApp1.Form1.resources
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.vbproj.GenerateResource.cache
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.vbproj.CoreCompileInputs.cache
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\WindowsApp1.exe
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\WindowsApp1.xml
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\WindowsApp1.pdb
