@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class Calc_Main
 
     'Variables
     Dim values As New List(Of Double)
@@ -130,6 +130,16 @@
                 values.Add(input.Substring(indexOfOperators.Last + 1, (i - indexOfOperators.Last) - 1))
             End If
         Next
+        'Für die Exponenten wird hier nach Exponent Operatoren gesucht und die jeweiligen Exponenten gezogen
+        For operatorIndex = 0 To operators.Count - 1
+            If getNumberofExponentOperators() = 0 Then Exit For
+            If operators.Count = 0 Then Exit For
+            If operators.Count = 1 Then operatorIndex = 0
+            If operators(operatorIndex) = "^" Then
+                values(operatorIndex) = Exponent(values(operatorIndex), values(operatorIndex + 1))
+                RefactoringLists(operatorIndex)
+            End If
+        Next
         'Für die Punkt vor Strich Rechnung wird hier nach den Punkt Operatoren gesucht und die jeweiligen Zahlen miteinander multipliziert bzw. dividiert
         For operatorIndex = 0 To operators.Count - 1
             If getNumberOfDotOperators() = 0 Then Exit For
@@ -141,9 +151,6 @@
                 RefactoringLists(operatorIndex)
             ElseIf operators(operatorIndex) = "/" Then
                 values(operatorIndex) = Division(values(operatorIndex), values(operatorIndex + 1))
-                RefactoringLists(operatorIndex)
-            ElseIf operators(operatorIndex) = "^" Then
-                values(operatorIndex) = Exponent(values(operatorIndex), values(operatorIndex + 1))
                 RefactoringLists(operatorIndex)
             End If
         Next
@@ -187,13 +194,26 @@
     End Sub
 
     ''' <summary>
+    ''' Ermittelt die Anzahl der Exponent Operatoren (^) in der Eingabe für den Abbruch der For Schleife für die Exponent Operatoren
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function getNumberofExponentOperators() As Integer
+        Dim res = 0
+        For Each element In operators
+            If element = "^" Then res = res + 1
+        Next
+        Return res
+    End Function
+
+
+    ''' <summary>
     ''' Ermittelt die Anzahl der Punkt Operatoren (* und /) in der Eingabe für den Abbruch der For Schleife für die Punkt Operatoren
     ''' </summary>
     ''' <returns></returns>
     Private Function getNumberOfDotOperators() As Integer
         Dim res = 0
         For Each element In operators
-            If element = "*" OrElse element = "/" OrElse element = "^" Then res = res + 1
+            If element = "*" OrElse element = "/" Then res = res + 1
         Next
         Return res
     End Function

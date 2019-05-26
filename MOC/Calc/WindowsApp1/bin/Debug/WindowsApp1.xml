@@ -60,6 +60,12 @@ WindowsApp1
  </summary>
  <param name="operatorIndex">Index des Operators</param>
 </member>
+<member name="M:WindowsApp1.Form1.getNumberofExponentOperators">
+ <summary>
+ Ermittelt die Anzahl der Exponent Operatoren (^) in der Eingabe für den Abbruch der For Schleife für die Exponent Operatoren
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:WindowsApp1.Form1.getNumberOfDotOperators">
  <summary>
  Ermittelt die Anzahl der Punkt Operatoren (* und /) in der Eingabe für den Abbruch der For Schleife für die Punkt Operatoren

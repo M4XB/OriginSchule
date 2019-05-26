@@ -26,3 +26,6 @@ Sonst direkt das Berechnen mit ganzem Term aufrufen
 
 Der Calc kann nun mit Klammern rechnen, wenn sie nacheinander stehen und nicht ineinander
 Zudem wird am Anfang geprüft, ob 2 Operatoren direkt aneinander stehen, da dies zu einem harten Fehler führt
+
+Der Calc kann nun auch mit Klammern rechnen, falls diese ineinander stehen
+Die Berechnung der Exponenten wurde korrigiert, sodass diese vor den Punktoperatoren berechnet wird
