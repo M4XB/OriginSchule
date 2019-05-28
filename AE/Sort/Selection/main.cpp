@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     //Ausgabe
     cout << ""<<endl;
     for (int i = 0; i < numberOfNumbers; i++) {
-        cout << numbers[i] << endl;
+        cout << numbers[i] << " ";
     }
     return 0;
 }
