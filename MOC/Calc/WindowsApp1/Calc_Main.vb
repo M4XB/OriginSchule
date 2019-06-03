@@ -134,10 +134,10 @@
         For i = 0 To input.Length
             If i <> input.Length Then
                 If input.Substring(i, 1) = "+" OrElse
-                   input.Substring(i, 1) = "-" OrElse
-                   input.Substring(i, 1) = "*" OrElse
-                   input.Substring(i, 1) = "/" OrElse
-                   input.Substring(i, 1) = "^" Then
+               input.Substring(i, 1) = "-" OrElse
+               input.Substring(i, 1) = "*" OrElse
+               input.Substring(i, 1) = "/" OrElse
+               input.Substring(i, 1) = "^" Then
                     countOfOperators += 1
                     indexOfOperators.Add(i)
                     operators.Add(input.Substring(i, 1))
@@ -333,15 +333,15 @@
         Dim bufferChar = input.First
         For index = 1 To input.Length - 1
             If (input.Substring(index, 1) = "+" OrElse
-                input.Substring(index, 1) = "-" OrElse
-                input.Substring(index, 1) = "*" OrElse
-                input.Substring(index, 1) = "/" OrElse
-                input.Substring(index, 1) = "^") AndAlso (
-                bufferChar = "+" OrElse
-                bufferChar = "-" OrElse
-                bufferChar = "*" OrElse
-                bufferChar = "/" OrElse
-                bufferChar = "^") Then
+            input.Substring(index, 1) = "-" OrElse
+            input.Substring(index, 1) = "*" OrElse
+            input.Substring(index, 1) = "/" OrElse
+            input.Substring(index, 1) = "^") AndAlso (
+            bufferChar = "+" OrElse
+            bufferChar = "-" OrElse
+            bufferChar = "*" OrElse
+            bufferChar = "/" OrElse
+            bufferChar = "^") Then
                 Return True
             Else
                 bufferChar = input.Substring(index, 1)
