@@ -55,7 +55,7 @@
     ''' <param name="e"></param>
     Private Sub Button_PlaceResultInInput_Click(sender As Object, e As EventArgs) Handles Button_PlaceResultInInput.Click
         Dim firstIndexOfResult = MemoryBox.Text.IndexOf("=") + 2
-        Dim lengthOfResult = MemoryBox.Text.IndexOf(",") - firstIndexOfResult
+        Dim lengthOfResult = MemoryBox.Text.IndexOf("#") - firstIndexOfResult
         inputBox.Text += MemoryBox.Text.Substring(firstIndexOfResult, lengthOfResult)
     End Sub
 
@@ -112,7 +112,7 @@
         End If
         Dim result = Calculate(input).ToString
         OutputBox.Text = result
-        MemoryBox.Text = input & " = " & result & "," & vbCrLf + MemoryBox.Text
+        MemoryBox.Text = input & " = " & result & "#" & vbCrLf + MemoryBox.Text
         operators = New List(Of Char)
         values = New List(Of Double)
     End Sub
