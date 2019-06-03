@@ -1,11 +1,15 @@
 ﻿Public Class Calc_Main
-
     'Variables
     Dim values As New List(Of Double)
     Dim operators As New List(Of Char)
 
+    ''' <summary>
+    ''' Erzeugt das Fenster
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+        FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
     End Sub
 
     ''' <summary>
@@ -36,8 +40,29 @@
     End Sub
 
     ''' <summary>
+    ''' Setzt den Zwischenspeicher zurück
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_ClearMemory_Click(sender As Object, e As EventArgs) Handles Button_ClearMemory.Click
+        MemoryBox.Text = Nothing
+    End Sub
+
+    ''' <summary>
+    ''' Schreibt das Ergebnis der letzten Berechnung in die InputBox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_PlaceResultInInput_Click(sender As Object, e As EventArgs) Handles Button_PlaceResultInInput.Click
+        Dim firstIndexOfResult = MemoryBox.Text.IndexOf("=") + 2
+        Dim lengthOfResult = MemoryBox.Text.IndexOf(",") - firstIndexOfResult
+        inputBox.Text += MemoryBox.Text.Substring(firstIndexOfResult, lengthOfResult)
+    End Sub
+
+    ''' <summary>
     ''' Die Hauptmethode, die das Berechnen des übergebenen Strings ausführt
     ''' Das Ergebnis wird dann in der Output Box ausgegeben
+    ''' Die beiden Listen der Werte und der Operatoren werden auch zurück gesetzt
     ''' </summary>
     ''' <param name="input">Term, der berechnet werden soll</param>
     Private Sub Main(input As String)
@@ -85,7 +110,11 @@
                 End If
             Next
         End If
-        OutputBox.Text = Calculate(input).ToString
+        Dim result = Calculate(input).ToString
+        OutputBox.Text = result
+        MemoryBox.Text = input & " = " & result & "," & vbCrLf + MemoryBox.Text
+        operators = New List(Of Char)
+        values = New List(Of Double)
     End Sub
 
     ''' <summary>
@@ -170,7 +199,6 @@
         Next
 
         'Gibt das Ergebnis in der OutputBox aus
-
         Return values(0)
     End Function
 
@@ -321,7 +349,6 @@
         Next
         Return False
     End Function
-
 
     Private Function GetnextHighestClosedBracket(opendBrackedIndex As Integer, closedBracketList As List(Of Integer)) As Integer
         For index = 0 To closedBracketList.Count - 1

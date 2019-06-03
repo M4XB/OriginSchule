@@ -29,3 +29,11 @@ Zudem wird am Anfang geprüft, ob 2 Operatoren direkt aneinander stehen, da dies
 
 Der Calc kann nun auch mit Klammern rechnen, falls diese ineinander stehen
 Die Berechnung der Exponenten wurde korrigiert, sodass diese vor den Punktoperatoren berechnet wird
+
+Es soll einen Speicher geben, der die letzte Rechnung anzeigt, sowie das Ergebnis
+Der Calc hat nun einen Memory speicher, der die Letzten Terme + Ergebnis anzeigt
+Zudem kann dieser Speicher zurückgesetzt werden
+
+Es soll nun die Möglichkeit geben, das letzte Ergebnis in den Term einzugeben
+Der Calc hat nun neben dem Zwischenspeicher einen Button, mit dem das letzte Ergebnis indie InputBox geschrieben wird
+Zudem werden nach dem Berechnen die beiden Listen für Werte und Operatoren zurück gesetzt

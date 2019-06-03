@@ -27,6 +27,10 @@ Partial Class Calc_Main
         Me.OutputBox = New System.Windows.Forms.TextBox()
         Me.Button_Delete = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.MemoryBox = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button_ClearMemory = New System.Windows.Forms.Button()
+        Me.Button_PlaceResultInInput = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'inputBox
@@ -40,9 +44,9 @@ Partial Class Calc_Main
         'Button_Equals
         '
         Me.Button_Equals.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Equals.Location = New System.Drawing.Point(436, 77)
+        Me.Button_Equals.Location = New System.Drawing.Point(474, 77)
         Me.Button_Equals.Name = "Button_Equals"
-        Me.Button_Equals.Size = New System.Drawing.Size(129, 28)
+        Me.Button_Equals.Size = New System.Drawing.Size(91, 28)
         Me.Button_Equals.TabIndex = 2
         Me.Button_Equals.Text = "Equals"
         Me.Button_Equals.UseVisualStyleBackColor = True
@@ -58,9 +62,9 @@ Partial Class Calc_Main
         'Button_Delete
         '
         Me.Button_Delete.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Delete.Location = New System.Drawing.Point(436, 111)
+        Me.Button_Delete.Location = New System.Drawing.Point(474, 111)
         Me.Button_Delete.Name = "Button_Delete"
-        Me.Button_Delete.Size = New System.Drawing.Size(129, 28)
+        Me.Button_Delete.Size = New System.Drawing.Size(91, 28)
         Me.Button_Delete.TabIndex = 3
         Me.Button_Delete.Text = "Delete"
         Me.Button_Delete.UseVisualStyleBackColor = True
@@ -75,12 +79,56 @@ Partial Class Calc_Main
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "="
         '
+        'MemoryBox
+        '
+        Me.MemoryBox.Font = New System.Drawing.Font("Calibri Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MemoryBox.Location = New System.Drawing.Point(34, 161)
+        Me.MemoryBox.Multiline = True
+        Me.MemoryBox.Name = "MemoryBox"
+        Me.MemoryBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.MemoryBox.Size = New System.Drawing.Size(333, 181)
+        Me.MemoryBox.TabIndex = 5
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(31, 141)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(56, 17)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Memory"
+        '
+        'Button_ClearMemory
+        '
+        Me.Button_ClearMemory.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_ClearMemory.Location = New System.Drawing.Point(34, 348)
+        Me.Button_ClearMemory.Name = "Button_ClearMemory"
+        Me.Button_ClearMemory.Size = New System.Drawing.Size(75, 28)
+        Me.Button_ClearMemory.TabIndex = 7
+        Me.Button_ClearMemory.Text = "Clear"
+        Me.Button_ClearMemory.UseVisualStyleBackColor = True
+        '
+        'Button_PlaceResultInInput
+        '
+        Me.Button_PlaceResultInInput.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_PlaceResultInInput.Location = New System.Drawing.Point(373, 161)
+        Me.Button_PlaceResultInInput.Name = "Button_PlaceResultInInput"
+        Me.Button_PlaceResultInInput.Size = New System.Drawing.Size(23, 28)
+        Me.Button_PlaceResultInInput.TabIndex = 6
+        Me.Button_PlaceResultInInput.Text = "^"
+        Me.Button_PlaceResultInInput.UseVisualStyleBackColor = True
+        '
         'Calc_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(577, 450)
+        Me.ClientSize = New System.Drawing.Size(577, 392)
+        Me.Controls.Add(Me.Button_PlaceResultInInput)
+        Me.Controls.Add(Me.Button_ClearMemory)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.MemoryBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button_Delete)
         Me.Controls.Add(Me.OutputBox)
@@ -100,4 +148,8 @@ Partial Class Calc_Main
     Friend WithEvents OutputBox As TextBox
     Friend WithEvents Button_Delete As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents MemoryBox As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button_ClearMemory As Button
+    Friend WithEvents Button_PlaceResultInInput As Button
 End Class
