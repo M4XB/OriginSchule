@@ -37,3 +37,10 @@ Zudem kann dieser Speicher zurückgesetzt werden
 Es soll nun die Möglichkeit geben, das letzte Ergebnis in den Term einzugeben
 Der Calc hat nun neben dem Zwischenspeicher einen Button, mit dem das letzte Ergebnis indie InputBox geschrieben wird
 Zudem werden nach dem Berechnen die beiden Listen für Werte und Operatoren zurück gesetzt
+
+Es soll mit einem Button ein Fenster geöffnet werden, dass jegliche Formeln aus dem ITS Unterricht berechnet
+-> URI  
+-> PUI
+-> Akkukapazität
+-> USV
+-> RAM 
