@@ -2,6 +2,7 @@
     'Variables
     Dim values As New List(Of Double)
     Dim operators As New List(Of Char)
+    Dim mouseOffset As Point
 
     ''' <summary>
     ''' Erzeugt das Fenster
@@ -9,7 +10,7 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+
     End Sub
 
     ''' <summary>
@@ -18,12 +19,44 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_Equals_Click(sender As Object, e As EventArgs) Handles Button_Equals.Click
-        If DoubleOperators(inputBox.Text) Then
-            MsgBox("Es gibt 2 Operator, die direkt aneinander stehen!")
-        ElseIf Not inputBox.Text = "" Then
-            Main(inputBox.Text)
+        If Not inputBox.Text = "" Then
+            If DoubleOperators(inputBox.Text) Then
+                MsgBox("Es gibt 2 Operator, die direkt aneinander stehen!")
+            Else
+                Main(inputBox.Text)
+            End If
         Else
             MsgBox("Es wurde kein Term zur Berechnung angegeben!")
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Schließt die App
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub LabelClose_Click(sender As Object, e As EventArgs) Handles LabelClose.Click
+        Me.Close()
+    End Sub
+
+    ''' <summary>
+    ''' Minimmiert das Fenster
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub LabelMinimize_Click(sender As Object, e As EventArgs) Handles LabelMinimize.Click
+        WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub Me_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseDown
+        mouseOffset = New Point(-e.X, -e.Y)
+    End Sub
+
+    Private Sub Me_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseMove
+        If e.Button = MouseButtons.Left Then
+            Dim mousePos = Control.MousePosition
+            mousePos.Offset(mouseOffset.X, mouseOffset.Y)
+            Location = mousePos
         End If
     End Sub
 
@@ -380,5 +413,4 @@
     Private Function Exponent(firstValue As Double, secondValue As Double) As Double
         Return firstValue ^ secondValue
     End Function
-
 End Class

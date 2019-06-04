@@ -36,6 +36,20 @@ Calc
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:Calc.Calc_Main.LabelClose_Click(System.Object,System.EventArgs)">
+ <summary>
+ Schließt die App
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_Main.LabelMinimize_Click(System.Object,System.EventArgs)">
+ <summary>
+ Minimmiert das Fenster
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:Calc.Calc_Main.Button_Delete_Click(System.Object,System.EventArgs)">
  <summary>
  Setzt alle Listen, sowie die Input und Output Box auf Nothing

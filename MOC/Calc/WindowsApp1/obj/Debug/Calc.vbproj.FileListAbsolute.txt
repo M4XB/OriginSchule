@@ -9,3 +9,4 @@ D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\bin\Debug\Calc.xml
 D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.exe
 D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.xml
 D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.pdb
+D:\Berufsschule\OriginSchule\MOC\Calc\WindowsApp1\obj\Debug\Calc.vbprojAssemblyReference.cache
