@@ -31,15 +31,17 @@ int main(int argc, char *argv[])
     //Sortieren
     int inputIndex = 0;
     int maxIndex = numberOfNumbers-1;
-    int minIndex;
+    int minIndex; //erster Index im unsortiertem Bereich
     int countOfSwaps=1;
     while (inputIndex < maxIndex){
         minIndex = inputIndex;
+        //Findet das kleinste Element in dem unsortieren Bereich
         for (int i = inputIndex+1; i <= maxIndex; i++){
             if (numbers[i] < numbers[minIndex]){
                 minIndex = i;
             }
         }
+        //Vertauscht das kleinste Element in der unsortierten Liste, mit dem ersten Element der unsortieren Liste
         int buffer = numbers[inputIndex];
         numbers[inputIndex] = numbers[minIndex];
         numbers[minIndex] = buffer;
