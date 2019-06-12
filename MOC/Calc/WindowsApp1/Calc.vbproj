@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calc_ITS.Designer.vb">
+      <DependentUpon>Calc_ITS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calc_ITS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Calc_Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Calc_ITS.resx">
+      <DependentUpon>Calc_ITS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calc_Main.resx">
       <DependentUpon>Calc_Main.vb</DependentUpon>
     </EmbeddedResource>

@@ -93,6 +93,15 @@
     End Sub
 
     ''' <summary>
+    ''' Öffnet das Fenster für den ITS Bereich
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_OpenITS_Click(sender As Object, e As EventArgs) Handles Button_OpenITS.Click
+        Calc_ITS.Show()
+    End Sub
+
+    ''' <summary>
     ''' Die Hauptmethode, die das Berechnen des übergebenen Strings ausführt
     ''' Das Ergebnis wird dann in der Output Box ausgegeben
     ''' Die beiden Listen der Werte und der Operatoren werden auch zurück gesetzt

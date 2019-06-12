@@ -22,6 +22,67 @@ Calc
   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
 </summary>
 </member>
+<member name="M:Calc.Calc_ITS.Calc_ITS_Load(System.Object,System.EventArgs)">
+ <summary>
+ Erzeugt das Fenster
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.LabelClose_Click(System.Object,System.EventArgs)">
+ <summary>
+ Schließt die App
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.LabelMinimize_Click(System.Object,System.EventArgs)">
+ <summary>
+ Minimmiert das Fenster
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.Button_Calculate_URI_Click(System.Object,System.EventArgs)">
+ <summary>
+ Wendet die URI Regln an
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.Button_URI_Delete_Click(System.Object,System.EventArgs)">
+ <summary>
+ Löscht alle Eingaben in den Feldern für URI
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.Button_Calculate_PUI_Click(System.Object,System.EventArgs)">
+ <summary>
+ Wendet die PUI Regln an
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.Button_PUI_Delete_Click(System.Object,System.EventArgs)">
+ <summary>
+ Löscht alle Eingaben in den Feldern für PUI
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_ITS.CountEmptyBoxesUri">
+ <summary>
+ Zählt die nicht gefüllten Boxen der PUI Felder
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Calc.Calc_ITS.CountEmptyBoxesPUI">
+ <summary>
+ Zählt die nicht gefüllten Boxen der PUI Felder
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:Calc.Calc_Main.Form1_Load(System.Object,System.EventArgs)">
  <summary>
  Erzeugt das Fenster
@@ -67,6 +128,13 @@ Calc
 <member name="M:Calc.Calc_Main.Button_PlaceResultInInput_Click(System.Object,System.EventArgs)">
  <summary>
  Schreibt das Ergebnis der letzten Berechnung in die InputBox
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Calc.Calc_Main.Button_OpenITS_Click(System.Object,System.EventArgs)">
+ <summary>
+ Öffnet das Fenster für den ITS Bereich
  </summary>
  <param name="sender"></param>
  <param name="e"></param>

@@ -33,6 +33,7 @@ Partial Class Calc_Main
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LabelClose = New System.Windows.Forms.Label()
         Me.LabelMinimize = New System.Windows.Forms.Label()
+        Me.Button_OpenITS = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'inputBox
@@ -166,6 +167,18 @@ Partial Class Calc_Main
         Me.LabelMinimize.TabIndex = 10
         Me.LabelMinimize.Text = "_"
         '
+        'Button_OpenITS
+        '
+        Me.Button_OpenITS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_OpenITS.Font = New System.Drawing.Font("Calibri Light", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_OpenITS.ForeColor = System.Drawing.Color.Aqua
+        Me.Button_OpenITS.Location = New System.Drawing.Point(474, 158)
+        Me.Button_OpenITS.Name = "Button_OpenITS"
+        Me.Button_OpenITS.Size = New System.Drawing.Size(91, 28)
+        Me.Button_OpenITS.TabIndex = 11
+        Me.Button_OpenITS.Text = "ITS"
+        Me.Button_OpenITS.UseVisualStyleBackColor = True
+        '
         'Calc_Main
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
@@ -174,6 +187,7 @@ Partial Class Calc_Main
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(577, 392)
+        Me.Controls.Add(Me.Button_OpenITS)
         Me.Controls.Add(Me.LabelMinimize)
         Me.Controls.Add(Me.LabelClose)
         Me.Controls.Add(Me.Label3)
@@ -205,4 +219,5 @@ Partial Class Calc_Main
     Friend WithEvents Label3 As Label
     Friend WithEvents LabelClose As Label
     Friend WithEvents LabelMinimize As Label
+    Friend WithEvents Button_OpenITS As Button
 End Class
