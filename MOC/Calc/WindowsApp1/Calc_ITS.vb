@@ -16,6 +16,8 @@
     Dim puiUSet As Boolean
     Dim puiISet As Boolean
 
+    Dim binaryToSi As Boolean = True
+
 
     ''' <summary>
     ''' Erzeugt das Fenster
@@ -185,4 +187,27 @@
             Return False
         End If
     End Function
+
+    Private Sub Button_Change_Direction_Click(sender As Object, e As EventArgs) Handles Button_Change_Direction.Click
+        If Button_Change_Direction.Text = ">" Then
+            Button_Change_Direction.Text = "<"
+            binaryToSi = False
+        ElseIf Button_Change_Direction.Text = "<" Then
+            Button_Change_Direction.Text = ">"
+            binaryToSi = True
+        End If
+    End Sub
+
+    Private Sub Button_Delete_Präfix_Click(sender As Object, e As EventArgs) Handles Button_Delete_Präfix.Click
+        InputBox_BinärPräfix.Text = Nothing
+        InputBox_SiPräfix.Text = Nothing
+    End Sub
+
+    Private Sub Button_Calculate_Präfix_Click(sender As Object, e As EventArgs) Handles Button_Calculate_Präfix.Click
+        If binaryToSi Then
+            InputBox_SiPräfix.Text = InputBox_BinärPräfix.Text * 1.024
+        Else
+            InputBox_BinärPräfix.Text = InputBox_SiPräfix.Text / 1.024
+        End If
+    End Sub
 End Class

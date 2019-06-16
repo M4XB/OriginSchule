@@ -39,6 +39,12 @@
         Me.Close()
     End Sub
 
+    Private Sub InputBox_TextChanged(sender As Object, e As KeyEventArgs) Handles inputBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Main(inputBox.Text)
+        End If
+    End Sub
+
     ''' <summary>
     ''' Minimmiert das Fenster
     ''' </summary>
@@ -87,9 +93,14 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_PlaceResultInInput_Click(sender As Object, e As EventArgs) Handles Button_PlaceResultInInput.Click
-        Dim firstIndexOfResult = MemoryBox.Text.IndexOf("=") + 2
-        Dim lengthOfResult = MemoryBox.Text.IndexOf("#") - firstIndexOfResult
-        inputBox.Text += MemoryBox.Text.Substring(firstIndexOfResult, lengthOfResult)
+        If MemoryBox.Text = "" OrElse MemoryBox.Text = Nothing Then
+            MsgBox("Es gibt kein letztes Ergebnis!")
+        Else
+            Dim firstIndexOfResult = MemoryBox.Text.IndexOf("=") + 2
+            Dim lengthOfResult = MemoryBox.Text.IndexOf("#") - firstIndexOfResult
+            inputBox.Text += MemoryBox.Text.Substring(firstIndexOfResult, lengthOfResult)
+        End If
+
     End Sub
 
     ''' <summary>

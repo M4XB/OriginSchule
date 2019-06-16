@@ -38,7 +38,7 @@ Partial Class Calc_Main
         '
         'inputBox
         '
-        Me.inputBox.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.inputBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.inputBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.inputBox.Font = New System.Drawing.Font("Calibri Light", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.inputBox.ForeColor = System.Drawing.Color.Aqua
@@ -62,7 +62,7 @@ Partial Class Calc_Main
         '
         'OutputBox
         '
-        Me.OutputBox.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.OutputBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.OutputBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.OutputBox.Font = New System.Drawing.Font("Calibri Light", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OutputBox.ForeColor = System.Drawing.Color.Aqua
@@ -97,7 +97,7 @@ Partial Class Calc_Main
         '
         'MemoryBox
         '
-        Me.MemoryBox.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.MemoryBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.MemoryBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MemoryBox.Font = New System.Drawing.Font("Calibri Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MemoryBox.ForeColor = System.Drawing.Color.Aqua
