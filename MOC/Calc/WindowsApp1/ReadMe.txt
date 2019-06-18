@@ -47,3 +47,4 @@ Es soll mit einem Button ein Fenster geöffnet werden, dass jegliche Formeln aus
 
 Der Calc hat jetzt einen Knopf, mit dem ein Fenster für ITS geöffnet wird
 --> Berechnung mit URI und PUI ist nun Möglich
+--> Umformen von Binär in SI Präfix und andersrum möglich
