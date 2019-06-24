@@ -1,0 +1,29 @@
+AE KLausur:
+
+OOP (Objekt Orientierte Programmierung)
+Grundidee: Problem wird in Objekte und deren Beziehungen zueinander zerlegt
+Grundprinzipien: 
+		Kapselung (Daten und Methoden gehören nur zur Klasse, nur über Schnittstellen von außen verfügbar)
+		Vererbung (Vererbung von Daten und Methoden an Unterklassen)
+		Polymorphie (Methoden mit gleichem Namen, die andere Outputs haben / Überladungen)
+	
+UML (Unified Modelling Language)
+Grundidee: visualisierug von Programmieraufgaben / Implementation
+eindeutig, ausdrucksstark, standard, sprachenunabhängig
+
+Notation bei KLassen: 
+- (private)
++ (public)
+# (protected)
+
+Beziehungen:
+Assoziation (beliebige Beziehung zwischen Klassen)
+Aggregation (Teil eines Ganzen)
+Komposition (verstärkte Aggregation / Existenzabhängig vom Ganzen)
+Kardinalitäten: 1,*,n
+
+Sortieralgorithmen:
+in Place: braucht neben der Liste/ Array nur eine weitere Variable
+stable: gleiche Werte, die nebeneinander sind werden nicht vertauscht
+adaptive: bereits vorsortiert
+
