@@ -19,13 +19,13 @@ public:
 
     showpeople(int number_of_people = 0, int number_of_rows = 0) : number_of_people_(number_of_people), number_of_rows_(number_of_rows) {
         PrintConfig();
-    };
+    }
 
     void PrintConfig() {
         std::cout  << std::endl << "[demokratur] [class showpeople]  config: " << std::endl;
         std::cout << "[demokratur] [class showpeople]            number_of_people_ = " << number_of_people_ << std::endl;
         std::cout << "[demokratur] [class showpeople]            number_of_rows_   = " << number_of_rows_  << std::endl << std::endl;
-    };
+    }
 
     // define marker of sing ale person's party
     std::string showperson(int party) {
@@ -61,7 +61,7 @@ public:
         std::cout  << std::endl << "[demokratur] [class interaction]  config: " << std::endl;
         std::cout << "[demokratur] [class interaction]            number_of_people_ = " << number_of_people_ << std::endl;
         std::cout << "[demokratur] [class interaction]            number_of_rows_   = " << number_of_rows_  << std::endl << std::endl;
-    };
+    }
 
     // select person who is willing to convince another
     int pickconvincer() {
