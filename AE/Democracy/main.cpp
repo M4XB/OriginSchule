@@ -7,9 +7,10 @@
 #include <Windows.h>
 
 using namespace std;
+
 //Variablen
 const int populationCount = 400;
-int populationArray[populationCount];
+const int populationArray[populationCount];
 const int sleepingTime = 100;
 const int outputs = 10000;
 
@@ -23,6 +24,7 @@ void outputCounter(int counter);
 
 int main(int argc, char *argv[])
 {
+
     srand(time(NULL));
     //50:50 Bevölkerung
     for(int i = 0; i < populationCount; i++){
