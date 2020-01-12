@@ -1,0 +1,21 @@
+WWM
+
+Datenbank (Fragen + Antwort)
+Gamelogic - OOP
+UI
+plan of disaster
+	min. Anford:
+		gamelogic
+		fragen + antwort
+		scoreboard (zählen)
+		datenbank
+		UI (ganz simpel)
+	
+	optimal:
+		joker
+		fragen nach schwierigkeit (schwierigkeit am anfang auswählbar (Noob/ Pro/ God))
+		UI (mit originalem Design)
+		safepoints 
+		scoreboard (geld)
+		memes
+	
