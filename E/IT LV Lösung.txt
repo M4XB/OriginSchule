@@ -1,0 +1,24 @@
+Leistungen, für die Alan Turin weltbekannt wurde:
+	knacken des Enigma Codes, der von der Deutschen im 2ten Weltkrieg benutzt werden
+
+Kurze Beschreibung des Turing-Tests:
+	1 Tester kommuniziert mit einem Computer und einem 2ten Menschen über ein Programm
+	Wenn der Tester nach 5Minuten nicht feststellen kann, wer Computer und Mensch ist, hat der Computer den Test bestanden
+
+Turin Prophezeiung:
+	Nach 2000 ist die Wahrscheinlichkeit, dass der Tester richtig Computer und Mensch identifiziert unter 70%
+
+Anforderungen an die Gewinner eines Loebner-Preises:
+	1 Tester kann nach 30 Minuten einen Computer nicht von einem Menschen unterscheiden. Dieser Test beinhaltet Text, Audio und Video Input
+	
+Kritik am Turing-Test:
+	Ob es sich um einen adequaten Intelligenz test handelt.
+
+Programmierung/ Funktionsweise von DeepBlue:
+	lernt und analysiert tausende von Spielen, zwicshen den Spielen wurde der Roboter von den Entwicklern neu justiert
+	
+Programmierung/ Funktionsweise von AlphaGo:
+	Spielte gegen sich selber und lernte von dessen Erfahrungen und Feedback
+	
+Programmierung/ Funktionsweise von Libratus:
+	Lernt nicht, sondern einen Algorithmus, der pro Schritt Entscheidungen trifft
